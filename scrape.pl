@@ -16,21 +16,21 @@ my $url		= $config{url};
 my $xml = XMLin(get($url));
 
 
-my $my_cnf = '/secret/my_cnf.cnf';
-
-my $dbh = DBI->connect("DBI:mysql:"
-                        . ";mysql_read_default_file=$my_cnf"
-                        .';mysql_read_default_group=scraper',
-                        undef,
-                        undef
-                        ) or die "something went wrong ($DBI::errstr)";
+#my $my_cnf = '/secret/my_cnf.cnf';
+#
+#my $dbh = DBI->connect("DBI:mysql:"
+#                        . ";mysql_read_default_file=$my_cnf"
+#                        .';mysql_read_default_group=scraper',
+#                        undef,
+#                        undef
+#                        ) or die "something went wrong ($DBI::errstr)";
 
 #my $sth=$dbh->prepare("insert into currentplayers (players) values ('$players')");
 #$sth->execute();
 
-#use Data::Dumper qw(Dumper);
-#print Dumper $xml;
-#exit;
+use Data::Dumper qw(Dumper);
+print Dumper $xml;
+exit;
 
 
 foreach my $item (@{$$xml{'StatsLeaderboard'}}){
